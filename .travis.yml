@@ -18,12 +18,10 @@ deploy:
     script: echo test-branch
     on:
       branch: test-branch
-
   - provider: script
     script: echo "deploy master detected" && printenv
     on:
       branch: master
-
   - provider: script
     script: bash on-version-tag.sh
     on:
