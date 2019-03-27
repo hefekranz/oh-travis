@@ -1,0 +1,30 @@
+branches:
+  only:
+    - master
+    - test-branch
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+env:
+  global:
+    - SOME_GLOBAL_VAR="I am a global var"
+
+before_script:
+  - set -e
+  - echo "before_script step"
+script:
+  - echo "in script step"
+
+deploy:
+  - provider: script
+    script: echo test-branch
+    on:
+      branch: test-branch
+
+  - provider: script
+    script: echo "deploy master detected" && printenv
+    on:
+      branch: master
+
+  - provider: script
+    script: bash on-version-tag.sh
+    on:
+      branch: /^v\d+\.\d+(\.\d+)?(-\S*)?$/
