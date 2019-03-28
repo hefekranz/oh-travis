@@ -1,7 +1,7 @@
 branches:
   only:
     - test-branch
-
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 env:
   global:
     - SOME_GLOBAL_VAR="I am a global var"
@@ -32,6 +32,6 @@ deploy:
       branch: master
     
   - provider: script
-    script: echo "I react only to tags"
+    script: echo "I react only to tags and the tag is ${TRAVIS_TAG}"
     on:
       tags: true
