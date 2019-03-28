@@ -12,6 +12,9 @@ before_script:
   - echo "before_script step"
 script:
   - echo "in script step"
+  - echo "commit " ${TRAVIS_COMMIT}
+  - echo "branch " ${TRAVIS_BRANCH}
+  - echo "tag " ${TRAVIS_TAG}
 
 deploy:
   - provider: script
