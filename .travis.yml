@@ -25,17 +25,19 @@ deploy:
     on:
       branch: master
 
-  # - provider: script
-  #   script: echo "is master and tag is on"
-  #   on:
-  #     tags: true
-  #     branch: master
+  - provider: script
+    script: echo "is master and tag is on"
+    on:
+      tags: true
+      branch: master
     
   - provider: script
     script: echo "I react only to tags"
-    tags: true
+    on:
+      tags: true
   
   - provider: script
     script: echo "I react to regexed tags"
-    tags: true
-    condition: tag =~ /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+    on:
+      tags: true
+      condition: tag =~ /^v\d+\.\d+(\.\d+)?(-\S*)?$/
