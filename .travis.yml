@@ -21,11 +21,11 @@ deploy:
     on:
       branch: test-branch
   - provider: script
-    script: echo "deploy master detected" && printenv
+    script: echo "deploy master detected"
     on:
       branch: master
   - provider: script
-    script: bash on-version-tag.sh
+    script: echo "is master and tag is"
     on:
       tags: true
       branch: master
