@@ -1,7 +1,7 @@
 branches:
   only:
     - test-branch
-    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
 env:
   global:
     - SOME_GLOBAL_VAR="I am a global var"
@@ -35,9 +35,3 @@ deploy:
     script: echo "I react only to tags"
     on:
       tags: true
-  
-  - provider: script
-    script: echo "I react to regexed tags"
-    on:
-      tags: true
-      condition: tag =~ /^v\d+\.\d+(\.\d+)?(-\S*)?$/
