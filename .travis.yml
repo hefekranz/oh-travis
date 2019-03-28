@@ -2,7 +2,7 @@ branches:
   only:
     - master
     - test-branch
-    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+    # - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 env:
   global:
     - SOME_GLOBAL_VAR="I am a global var"
@@ -25,4 +25,5 @@ deploy:
   - provider: script
     script: bash on-version-tag.sh
     on:
-      branch: /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+      tags: true
+      branch: master
