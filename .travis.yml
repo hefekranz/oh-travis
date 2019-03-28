@@ -24,11 +24,13 @@ deploy:
     script: echo "deploy master detected"
     on:
       branch: master
-  - provider: script
-    script: echo "is master and tag is"
-    on:
-      tags: true
-      branch: master
+
+  # - provider: script
+  #   script: echo "is master and tag is on"
+  #   on:
+  #     tags: true
+  #     branch: master
+    
   - provider: script
     script: echo "I react only to tags"
     tags: true
